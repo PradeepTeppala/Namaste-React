@@ -1,41 +1,39 @@
 import User from "./User";
 import UserClass from "./UserClass";
-import React from "react";
+import { Component} from "react";
+import UserContext from "../utils/UserContext";
 
-// const About = () => {
-//     return (
-//         <div>
-//             <h1>About</h1>
-//             <h2>This is Namste React Web Series</h2>
-//             {/* < User name={"pradeep (Funcation)"} /> */}
+class About extends Component {
+  constructor(props) {
+    super(props);
+    // console.log("Parent Constructor")
+  }
 
-//             < UserClass name={"pradeep (class)"} Location={"Hyderabad (class)"}/>
-//         </div>
-//     )
-// };
+  componentDidMount() {
+    // console.log("Parent Component Did Mount");
+  }
 
-
-class About extends React.Component {
-    constructor(props){
-        super(props)
-        // console.log("Parent Constructor")
-    };
-
-    componentDidMount(){
-        // console.log("Parent Component Did Mount");
-    }
-
-    render(){
-        // console.log("Parent Render")
-        return (
-                <div>
-                    <h1>About</h1>
-                    <h2>This is Namste React Web Series</h2>
-                        
-                    < UserClass name={"Pradeep"} Location={"Hyderabad"} Contact= {"@Pradeep_Teppala"}/>
-                </div>
-                )
-    };
-};
+  render() {
+    // console.log("Parent Render")
+    return (
+      <div>
+        <h1>About</h1>
+        <div>
+          LoggedIn User
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
+        <UserClass
+          name={"Pradeep"}
+          Location={"Hyderabad"}
+          Contact={"@Pradeep_Teppala"}
+        />
+      </div>
+    );
+  }
+}
 
 export default About;
