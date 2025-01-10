@@ -4,23 +4,17 @@ import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    cuisines,
-    costForTwo,
-    sla,
-  } = resData?.info;
+  const { cloudinaryImageId, name, avgRating, cuisines, costForTwo, sla } =
+    resData?.info;
 
   return (
     <div className="m-4 p-4 w-[300px] rounded-lg bg-gray-200 hover:bg-gray-300">
       <img
         className="rounded-lg"
         alt="res-logo"
-        src={ CDN_URL + cloudinaryImageId}
+        src={CDN_URL + cloudinaryImageId}
       />
       <h3 className="font-bold py-4 text-lg">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
@@ -32,7 +26,7 @@ const RestaurantCard = (props) => {
   );
 };
 
-// Higher Order Function 
+// Higher Order Function
 
 export const withPromtedLabel = (RestaurantCard) => {
   return () => {
