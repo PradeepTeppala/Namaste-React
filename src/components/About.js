@@ -6,14 +6,10 @@ import UserContext from "../utils/UserContext";
 class About extends Component {
   constructor(props) {
     super(props);
-    // console.log("Parent Constructor")
   }
-  componentDidMount() {
-    // console.log("Parent Component Did Mount");
-  }
+  componentDidMount() {}
 
   render() {
-    // console.log("Parent Render")
     return (
       <div>
         <h1 className="text-center p-4 m-4 font-bold text-3xl">About</h1>

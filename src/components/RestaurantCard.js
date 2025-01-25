@@ -1,5 +1,5 @@
-import { CDN_URL } from "../utils/constants";
 import { useContext } from "react";
+import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
@@ -26,17 +26,5 @@ const RestaurantCard = (props) => {
   );
 };
 
-// Higher Order Function
-
-export const withPromtedLabel = (RestaurantCard) => {
-  return () => {
-    return (
-      <div>
-        <label>Promoted</label>
-        <RestaurantCard />
-      </div>
-    );
-  };
-};
 
 export default RestaurantCard;
